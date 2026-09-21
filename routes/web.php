@@ -33,7 +33,7 @@ RouteFacade::get('/', function () {
         return redirect()->route('user.dashboard');
     }
 
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 // Direct alias for 'dashboard' route name
