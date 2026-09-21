@@ -25,28 +25,28 @@ class DatabaseSeeder extends Seeder
 
         // 1. Create Demo Users for all 3 Roles
         $admin = User::firstOrCreate(
-            ['email' => 'admin@ticketing.com'],
+            ['email' => 'superadmin@gmail.com'],
             [
                 'name' => 'Super Admin',
-                'password' => Hash::make('password123'),
+                'password' => Hash::make('password'),
                 'role' => 'super_admin',
             ]
         );
 
         $owner = User::firstOrCreate(
-            ['email' => 'owner@ticketing.com'],
+            ['email' => 'owner@gmail.com'],
             [
                 'name' => 'Bus Company Owner',
-                'password' => Hash::make('password123'),
+                'password' => Hash::make('password'),
                 'role' => 'owner',
             ]
         );
 
         $counterUser = User::firstOrCreate(
-            ['email' => 'user@ticketing.com'],
+            ['email' => 'user@gmail.com'],
             [
                 'name' => 'Counter Operator',
-                'password' => Hash::make('password123'),
+                'password' => Hash::make('password'),
                 'role' => 'user',
             ]
         );
@@ -84,7 +84,7 @@ class DatabaseSeeder extends Seeder
         // 4. Create Vehicle Service Types
         $goldClass = VehicleServiceType::firstOrCreate(
             ['name' => 'Gold Class'],
-            ['total_seats' => 18, 'description' => 'VIP luxury seating with 18 seats, extra legroom & meals.', 'status' => 'active']
+            ['total_seats' => 40, 'description' => 'VIP luxury seating with 18 seats, extra legroom & meals.', 'status' => 'active']
         );
 
         $businessClass = VehicleServiceType::firstOrCreate(
