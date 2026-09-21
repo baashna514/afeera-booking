@@ -292,8 +292,10 @@ class BookingController extends Controller
      */
     protected function getAdjacentSeatNumbers(int $seatNumber, int $totalSeats): array
     {
-        $mainTotal = floor(($totalSeats - 1) / 4) * 4;
-        if ($totalSeats >= 41 && $seatNumber > $mainTotal) {
+        $hasBackRow5 = ($totalSeats % 4 === 1 && $totalSeats >= 5);
+        $mainTotal = $hasBackRow5 ? ($totalSeats - 5) : (floor($totalSeats / 4) * 4);
+
+        if ($hasBackRow5 && $seatNumber > $mainTotal) {
             $adjacents = [];
             if ($seatNumber > $mainTotal + 1) {
                 $adjacents[] = $seatNumber - 1;
